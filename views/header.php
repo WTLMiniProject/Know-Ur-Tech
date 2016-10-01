@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Know Ur Tech | Welcome</title>
     <link rel="stylesheet" type="text/css" href="../library/materialize/css/materialize.min.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../library/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../library/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../library/bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="../library/foundation/css/foundation.min.css">
