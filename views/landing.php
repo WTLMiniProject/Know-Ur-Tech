@@ -21,7 +21,7 @@
     </div>
 
     <div class="row column text-center">
-      <h2>Our Newest Products</h2>
+      <h2>Our Top Products</h2>
       <hr>
     </div>
 
@@ -107,7 +107,7 @@
     </div>
 
     <hr>
-    <div class="row">
+    <!-- <div class="row">
       <div class="medium-4 columns">
         <h4>Top Products</h4>
         <div class="media-object">
@@ -198,7 +198,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <?php
       include 'footer.php';
     ?>
