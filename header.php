@@ -13,9 +13,9 @@
   </head>
   <body> 
     <!-- Start Top Bar -->
-    <nav class="top-bar nav">
+    <nav class="top-bar nav" role="navigation">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#exp_navbar" aria-expanded="false">
+        <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#exp_navbar">
           <span class="sr-only">Toggle Navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
