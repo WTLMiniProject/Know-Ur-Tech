@@ -125,8 +125,6 @@
               <input type="password" name="c_password" id="c_password" placeholder="Confirm Password">
               <label for="mobile">Mobile</label>
               <input type="text" name="mobile" id="mobile" placeholder="Enter mobile number">
-              <label for="address">Address</label>
-              <input type="text" name="address" id="address" placeholder="Enter your address">
             </form> <!-- end of signup form -->
           </div> <!-- closing signup container -->
         </div> <!-- closing signup dialog -->
