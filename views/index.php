@@ -8,7 +8,7 @@
         <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
         <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
         <?php
-          for ($i=1; $i <=4 ; $i++) { 
+          for ($i=1; $i <=2 ; $i++) { 
         ?>
           <li class="orbit-slide">
           <img class="img-responsive" src="../uploads/carousel/image-<?=$i;?>.jpg" style="width: 1349px; height: 506px ;">
@@ -32,7 +32,7 @@
         foreach ($product as $pid => $p_item) {
       ?>
       <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
+        <img class="thumbnail" src="<?=$p_item['img']?>">
         <h5><?=$p_item['title']?></h5>
         <p></p>
         <a href="category.php?category=<?=$c_item['id']?>&subcategory=<?=$sc_item['id']?>&product=<?=$p_item['id']?>" class="button expanded">Add to Cart</a>
@@ -65,7 +65,7 @@
         foreach ($product as $pid => $p_item) {
       ?>
         <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
+        <img class="thumbnail" src="<?=$p_item['img']?>">
         <h5><?=$p_item['title']?></h5>
         <p><?=$p_item['price']?></p>
         <a href="#" class="button small expanded hollow">Add to Cart</a>

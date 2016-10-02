@@ -181,3 +181,25 @@
   font-size: 12px;
 }
 
+/*********************************************************
+**********************PRODUCT PAGE************************
+*********************************************************/
+.page_result {
+  
+}
+
+
+.card_img {
+  min-height: 250px;
+  min-width: 125px;
+  max-height: 255px;
+  max-width: 130px;
+}
+
+.thumbnail h3 {
+  font-size: 2vw;
+}
+
+.thumbnail p {
+  font-size: 1vw;
+}
