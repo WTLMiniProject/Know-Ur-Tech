@@ -1,5 +1,7 @@
 <?php
-  include ('header.php')
+  include ('header.php');
+
+  
 ?>
     <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
       <ul class="orbit-container">
@@ -26,30 +28,21 @@
     </div>
 
     <div class="row small-up-2 large-up-4">
+      <?php 
+        $sql = "SELECT id, title, cid, scid, description, img, price, quantity, created  FROM products ORDER BY rating DESC LIMIT 4";
+        $product = $conn->query($sql);
+        $product = mysqli_fetch_all ($product, MYSQLI_ASSOC);
+        foreach ($product as $pid => $p_item) {
+      ?>
       <div class="column">
         <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button expanded">Buy</a>
+        <h5><?=$p_item['title']?></h5>
+        <p></p>
+        <a href="category.php?category=<?=$c_item['id']?>&subcategory=<?=$sc_item['id']?>&product=<?=$p_item['id']?>" class="button expanded">Add to Cart</a>
       </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button expanded">Buy</a>
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button expanded">Buy</a>
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button expanded">Buy</a>
-      </div>
+      <?php  
+         } 
+      ?>
     </div>
 
     <hr>
@@ -63,47 +56,26 @@
     <hr>
 
     <div class="row column text-center">
-      <h2>Some Other Neat Products</h2>
+      <h2>Latest Products</h2>
       <hr>
     </div>
 
     <div class="row small-up-2 medium-up-3 large-up-6">
-      <div class="column">
+      <?php 
+        $sql = "SELECT id, title, cid, scid, description, img, price, quantity, created  FROM products ORDER BY created DESC LIMIT 6";
+        $product = $conn->query($sql);
+        $product = mysqli_fetch_all ($product, MYSQLI_ASSOC);
+        foreach ($product as $pid => $p_item) {
+      ?>
+        <div class="column">
         <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button small expanded hollow">Buy</a>
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button small expanded hollow">Buy</a>
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button small expanded hollow">Buy</a>
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button small expanded hollow">Buy</a>
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button small expanded hollow">Buy</a>
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
-        <h5>Nulla At Nulla Justo, Eget</h5>
-        <p>$400</p>
-        <a href="#" class="button small expanded hollow">Buy</a>
-      </div>
+        <h5><?=$p_item['title']?></h5>
+        <p><?=$p_item['price']?></p>
+        <a href="#" class="button small expanded hollow">Add to Cart</a>
+        </div>
+      <?php  
+         } 
+      ?>
     </div>
 
     <hr>

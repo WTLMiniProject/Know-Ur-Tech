@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Know Ur Tech | Welcome</title>
-    <link rel="stylesheet" type="text/css" href="../library/materialize/css/materialize.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../library/materialize/css/materialize.min.css"> -->
     <link rel="stylesheet" href="../library/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../library/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../library/bootstrap/css/bootstrap-theme.min.css">
@@ -14,13 +14,47 @@
     <script src="../library/foundation/js/vendor/foundations.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../library/materialize/js/materialize.min.js"></script>
+    <!-- <script type="text/javascript" src="../library/materialize/js/materialize.min.js"></script> -->
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../library/bootstrap/js/bootstrap.min.js"></script>
   </head>
-  <body> 
+  <body>
+
+  <?php
+  $user_name = "root";
+  $password = "";
+  $database = "electronics";
+  $host_name = "localhost"; 
+  $conn = new mysqli($host_name, $user_name, $password, $database);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  } 
+
+  $sql = "SELECT id, title FROM category";
+  $category = $conn->query($sql);
+
+  
+  $category = mysqli_fetch_all ($category, MYSQLI_ASSOC);
+  
+  
+
+
+  // var_dump($category);
+
+ /* if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+      }
+  } else {
+      echo "0 results";
+  }*/
+  //$conn->close();
+
+  ?> 
     <!-- Start Top Bar -->
     <nav class="top-bar navbar" role="navigation">
       
@@ -45,33 +79,45 @@
             <li class="dropdown"> <!-- products option -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products<span class="caret"></span></a>
               <ul class="dropdown-menu"> <!-- dropdown for products -->
+
+                <?php
+                  foreach ($category as $cid => $c_item) 
+                  {  
+
+                ?>
                 <li class="dropdown-submenu"> <!-- mobiles -->
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mobiles</span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$c_item['title'];?></span></a>
                   <ul class="dropdown-menu"> <!-- dropdown for mobiles -->
-                    <li><a href="#">Brand 1</a></li>
-                    <li><a href="#">Brand 2</a></li>
-                    <li><a href="#">Brand 3</a></li>
-                    <li><a href="#">Brand 4</a></li>
-                    <li><a href="#">Brand 5</a></li>
+                  <?php
+                    $sql = "SELECT id, title FROM sub_category WHERE cid = ".$c_item['id'];
+                    $subcategory = $conn->query($sql);  
+                    $subcategory = mysqli_fetch_all ($subcategory, MYSQLI_ASSOC);
+                   
+                    foreach ($subcategory as $key => $sc_item) {
+                  ?>
+                         <li style="float: none;"><a href="category.php?category=<?=$c_item['id'];?>&subcategory=<?=$sc_item['id'];?>"> <?=$sc_item['title'];?></a></li>
+                  <?php
+                    }
+                  ?>
                   </ul> <!-- end of mobile dropdown -->
                 </li> <!-- mobiles list close -->
-                <li class="dropdown-submenu"> <!-- laptops -->
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laptops</span></a>
-                  <ul class="dropdown-menu"> <!-- dropdown for laptops -->
-                    <li><a href="#">Brand 1</a></li>
-                    <li><a href="#">Brand 2</a></li>
-                    <li><a href="#">Brand 3</a></li>
-                    <li><a href="#">Brand 4</a></li>
-                    <li><a href="#">Brand 5</a></li>
-                  </ul> <!-- end of laptop dropdown -->
-                </li> <!-- laptop list close -->
+                <?php
+                    
+                  }
+                ?>
+                
               </ul> <!-- end of products dropdown -->
             </li> <!-- close product option -->
             <li class="dropdown"> <!-- compare option -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compare<span class="caret"></span></a>
               <ul class="dropdown-menu"> <!-- dropdown for comparison -->
-                <li><a href="#">Mobiles</a></li>
-                <li><a href="#">Laptops</a></li>
+                <?php
+                  foreach ($category as $cid => $c_item) {
+                ?>
+                  <li><a href="comopare.php?category=<?=$c_item['id']?>"> <?=$c_item['title']?></a></li>
+                <?php
+                  }
+                ?>
               </ul> <!-- end of comparison dropdown -->
             </li> <!-- end of compare option -->
           </ul> <!-- end of left navbar -->
