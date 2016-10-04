@@ -1,8 +1,7 @@
 <?php
-  include ('header.php');
-
-  
+  include ('header.php');  
 ?>
+    <!-- DIVISION FOR CAROUSEL -->
     <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
       <ul class="orbit-container">
         <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
@@ -24,6 +23,7 @@
       <hr>
     </div>
 
+    <!-- DIVISION FOR TOP PRODUCTS -->
     <div class="row small-up-2 large-up-4">
       <?php 
         $sql = "SELECT id, title, cid, scid, description, img, price, quantity, created  FROM products ORDER BY rating DESC LIMIT 4";
@@ -32,7 +32,18 @@
         foreach ($product as $pid => $p_item) {
       ?>
       <div class="column">
-        <img class="thumbnail" src="<?=$p_item['img']?>">
+        <?php 
+          if ($p_item['cid']==1) {
+        ?>
+            <img class="thumbnail" src="<?=$p_item['img']?>">
+        <?php    
+          }
+          else {
+        ?>
+              <img class="thumbnail mobile_img" src="<?=$p_item['img']?>" style="height: 178px; width: 360px; padding: 11px 92px;">
+        <?php  
+          }
+        ?>
         <h5><?=$p_item['title']?></h5>
         <p></p>
         <a href="category.php?category=<?=$c_item['id']?>&subcategory=<?=$sc_item['id']?>&product=<?=$p_item['id']?>" class="button expanded">Add to Cart</a>
@@ -43,15 +54,15 @@
     </div>
 
     <hr>
-
+    <!-- DIVISION FOR RUNNING OFFERS -->
     <div class="row column">
       <div class="callout primary">
-        <h3>Really big special this week on items.</h3>
+        <h3>Hi5....FILL YOUR CART WITH 5 PRODUCTS AND GET 5% DISCOUNT</h3>
       </div>
     </div>
 
     <hr>
-
+    <!-- DIVISION FOR NEW PRODUCTS -->
     <div class="row column text-center">
       <h2>Latest Products</h2>
       <hr>
@@ -59,13 +70,21 @@
 
     <div class="row small-up-2 medium-up-3 large-up-6">
       <?php 
-        $sql = "SELECT id, title, cid, scid, description, img, price, quantity, created  FROM products ORDER BY created DESC LIMIT 6";
-        $product = $conn->query($sql);
-        $product = mysqli_fetch_all ($product, MYSQLI_ASSOC);
         foreach ($product as $pid => $p_item) {
       ?>
         <div class="column">
-        <img class="thumbnail" src="<?=$p_item['img']?>">
+        <?php 
+          if ($p_item['cid']==1) {
+        ?>
+            <img class="thumbnail" src="<?=$p_item['img']?>">
+        <?php    
+          }
+          else {
+        ?>
+              <img class="thumbnail mobile_img" src="<?=$p_item['img']?>" style="height: 115px; width: 360px; padding: 5px 40px;">
+        <?php  
+          }
+        ?>
         <h5><?=$p_item['title']?></h5>
         <p><?=$p_item['price']?></p>
         <a href="#" class="button small expanded hollow">Add to Cart</a>

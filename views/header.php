@@ -68,7 +68,7 @@
           <span class="icon-bar"></span>
         </button> 
         
-        <a class="navbar-brand" href="landing.php"><img class="logo" src="../uploads/images/prjtlogo1.png"></a>
+        <a class="navbar-brand logo_div" href="index.php"><img class="logo" src="../uploads/images/prjtlogo1.png"></a>
       
       </div> <!-- end navbar header -->
 
@@ -109,12 +109,12 @@
               </ul> <!-- end of products dropdown -->
             </li> <!-- close product option -->
             <li class="dropdown"> <!-- compare option -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compare<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compare<span class="caret"></span></a>
               <ul class="dropdown-menu"> <!-- dropdown for comparison -->
                 <?php
                   foreach ($category as $cid => $c_item) {
                 ?>
-                  <li><a href="comopare.php?category=<?=$c_item['id']?>"> <?=$c_item['title']?></a></li>
+                  <li><a href="compare.php?category=<?=$c_item['id']?>"> <?=$c_item['title']?></a></li>
                 <?php
                   }
                 ?>
@@ -176,3 +176,13 @@
         </div> <!-- closing signup dialog -->
       </div> <!-- closing signup modal -->
     </div> <!-- closing signup space -->
+
+    <!-- TODO
+      ADMIN PANEL 
+      PRODUCT DETAILS PAGE 
+      COMPARE
+      SPECS TABLE
+      CAROUSEL IMAGES TO  BE ADDED 
+      EXPAND DB
+      ABOUT US DESIGN
+       -->

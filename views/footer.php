@@ -1,4 +1,4 @@
-<div class="callout large secondary"> <!-- footer opening -->
+<div class="callout large secondary footer"> <!-- footer opening -->
       <div class="row"> <!-- row for footer -->
         <div class="large-4 columns"> <!-- left footer -->
           <h5>About The Site</h5>
@@ -8,11 +8,11 @@
           <ul class="menu vertical"> <!-- right left footer list -->
             <li><a href="#">Login</a></li>
             <li><a href="#">Signup</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">2014-16 &copy; KuT Technologies Pvt. Ltd. All rights reserved</a></li>
+            <li><a href="#">2014-16 &copy; KuT Technologies Pvt. Ltd.</a></li>
+            <li><a href="#">All rights reserved</a></li>
           </ul> <!-- end of right left footer list -->
         </div> <!-- end of right left footer -->
-        <div class="large-3 columns"> <!-- right right footer -->
+        <div class="large-3 columns link"> <!-- right right footer -->
           <ul class="menu vertical"> <!-- right right footer list -->
             <li><a href="#"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
