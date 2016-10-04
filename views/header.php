@@ -126,7 +126,7 @@
         <div> <!-- division for right navbar -->          
           <ul class="menu nav navbar-nav navbar-right"> <!-- right navbar -->
             <li><a href="#">Cart</a></li>
-            <li><a href="about.php">About</a></li>
+            <li><a href="aboutus.php">About</a></li>
             <li><a type="button" data-toggle="modal" data-target="#login-modal">Login</a></li>
             <li><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
           </ul> <!-- closing right navbar -->
