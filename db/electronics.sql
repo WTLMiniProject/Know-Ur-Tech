@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2016 at 12:47 AM
+-- Generation Time: Oct 06, 2016 at 05:24 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -143,10 +143,15 @@ CREATE TABLE `specs_mob` (
 
 INSERT INTO `specs_mob` (`id`, `p_id`, `Internal Memory`, `RAM`, `Primary Camera`, `Secondary Camera`, `Battery Capacity`, `Screen Size`, `Cores`) VALUES
 (26, 26, '32 GB', '3 GB', '23 MP ', '5 MP', '2900 mAh', '5.5 inch', 'Octa core'),
-(31, 31, '64 GB', '3 GB', '21 MP', '5 MP', '3760 mAh', '5.4 inch', 'octa core'),
-(36, 36, '32 GB', '4 GB', '16 MP', '5 MP', '3000 mAh', '5.7 inch', 'Octa core'),
+(27, 27, '16 GB', '3 GB', '20.7 MP', '2.2 MP', '3200 mAh', '5.2 inch', 'Quad Core'),
+(31, 31, '64 GB', '3 GB', '21 MP', '5 MP', '3760 mAh', '5.4 inch', 'Octa Core'),
+(32, 32, '64 GB', '3 GB', '21 MP', '2 MP', '3900 mAh', '5.2 inch', 'Quad Core'),
+(36, 36, '32 GB', '4 GB', '16 MP', '5 MP', '3000 mAh', '5.7 inch', 'Octa Core'),
+(37, 37, '32 GB', '4 GB', '16 MP ', '5 MP', '3000 mAh', '5.7 inch', 'Octa Core'),
 (41, 41, '4 GB', '1 GB', '8 MP', '2 MP', '2250 mAh', '5.3 inch', 'Quad Core'),
-(46, 46, '32 GB', '4 GB', '16 MP', '8 MP', '2800 mAh', '5.3 inch', 'Quad Core');
+(42, 42, '32 GB', '3 GB', '16 MP', '8 Mp', '2900 mAh', '5 inch', 'Octa Core'),
+(46, 46, '32 GB', '4 GB', '16 MP', '8 MP', '2800 mAh', '5.3 inch', 'Quad Core'),
+(47, 47, '32 GB', '2 GB', '13 MP', '2.1 MP', '3500 mAh', '6 inch', 'Quad Core');
 
 -- --------------------------------------------------------
 
