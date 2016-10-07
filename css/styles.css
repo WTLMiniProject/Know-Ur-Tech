@@ -220,3 +220,13 @@
 .thumbnail p {
   font-size: 1vw;
 }
+
+.product_1 {
+  max-width: 35vw;
+}
+
+.product_2 {
+  max-width: 12vw;
+  max-height: 15vw;
+  margin: 2vw 0 0 15vw;
+}
