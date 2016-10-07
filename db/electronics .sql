@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2016 at 10:48 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Oct 07, 2016 at 07:55 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `electronics`
@@ -26,10 +26,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `category`
 --
 
-CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `category`
@@ -45,8 +46,8 @@ INSERT INTO `category` (`id`, `title`) VALUES
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `cid` int(11) NOT NULL,
   `scid` int(11) NOT NULL,
@@ -55,8 +56,9 @@ CREATE TABLE `products` (
   `price` int(6) NOT NULL,
   `quantity` int(3) NOT NULL,
   `created` datetime DEFAULT CURRENT_TIMESTAMP,
-  `rating` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `rating` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
 -- Dumping data for table `products`
@@ -96,23 +98,24 @@ INSERT INTO `products` (`id`, `title`, `cid`, `scid`, `description`, `img`, `pri
 -- Table structure for table `specs_lap`
 --
 
-CREATE TABLE `specs_lap` (
-  `id` int(3) NOT NULL,
-  `p_id` int(3) NOT NULL,
-  `OS` varchar(30) NOT NULL,
-  `Processor` varchar(30) NOT NULL,
-  `Speed` varchar(255) NOT NULL,
-  `Graphic Card` varchar(255) NOT NULL,
-  `RAM` varchar(10) NOT NULL,
-  `HDD` varchar(20) NOT NULL,
-  `Battery Backup` varchar(20) NOT NULL
+CREATE TABLE IF NOT EXISTS `specs_lap` (
+  `id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
+  `os` varchar(255) NOT NULL,
+  `processor` varchar(255) NOT NULL,
+  `speed` varchar(255) NOT NULL,
+  `graphic_card` varchar(255) NOT NULL,
+  `ram` varchar(255) NOT NULL,
+  `hd` varchar(255) NOT NULL,
+  `battery` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `specs_lap`
 --
 
-INSERT INTO `specs_lap` (`id`, `p_id`, `OS`, `Processor`, `Speed`, `Graphic Card`, `RAM`, `HDD`, `Battery Backup`) VALUES
+INSERT INTO `specs_lap` (`id`, `p_id`, `os`, `processor`, `speed`, `graphic_card`, `ram`, `hd`, `battery`) VALUES
 (1, 1, 'Windows 10', 'Core i7', '2.5 GHz with Turbo Boost upto 3.1 GHz', ' AMD Radeon R5 M335 4GB', '16 GB', '1TB', '6 hrs'),
 (2, 2, 'Windows 10', 'Core i5', '1.2 GHz with Turbo Boost Upto 3.1 GHz', 'Intel HD Graphics 515', '8 GB', '512 GB', '7 hrs'),
 (3, 3, 'Windows 10', 'Core i7', '2.6 GHz with Turbo Boost Upto 3.5 GHz', 'NVIDIA GeForce GTX 960M (4 GB)', '16 GB', '1 TB', '6.5 hrs'),
@@ -128,23 +131,24 @@ INSERT INTO `specs_lap` (`id`, `p_id`, `OS`, `Processor`, `Speed`, `Graphic Card
 -- Table structure for table `specs_mob`
 --
 
-CREATE TABLE `specs_mob` (
-  `id` int(3) NOT NULL,
-  `p_id` int(3) NOT NULL,
-  `Internal Memory` varchar(10) NOT NULL,
-  `RAM` varchar(10) NOT NULL,
-  `Primary Camera` varchar(10) NOT NULL,
-  `Secondary Camera` varchar(10) NOT NULL,
-  `Battery Capacity` varchar(20) NOT NULL,
-  `Screen Size` varchar(20) NOT NULL,
-  `Cores` varchar(20) NOT NULL
+CREATE TABLE IF NOT EXISTS `specs_mob` (
+  `id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
+  `internal_memory` varchar(255) NOT NULL,
+  `ram` varchar(255) NOT NULL,
+  `primary_cam` varchar(255) NOT NULL,
+  `secondary_cam` varchar(255) NOT NULL,
+  `battery` varchar(255) NOT NULL,
+  `screen` varchar(255) NOT NULL,
+  `cores` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `specs_mob`
 --
 
-INSERT INTO `specs_mob` (`id`, `p_id`, `Internal Memory`, `RAM`, `Primary Camera`, `Secondary Camera`, `Battery Capacity`, `Screen Size`, `Cores`) VALUES
+INSERT INTO `specs_mob` (`id`, `p_id`, `internal_memory`, `ram`, `primary_cam`, `secondary_cam`, `battery`, `screen`, `cores`) VALUES
 (26, 26, '32 GB', '3 GB', '23 MP ', '5 MP', '2900 mAh', '5.5 inch', 'Octa core'),
 (27, 27, '16 GB', '3 GB', '20.7 MP', '2.2 MP', '3200 mAh', '5.2 inch', 'Quad Core'),
 (31, 31, '64 GB', '3 GB', '21 MP', '5 MP', '3760 mAh', '5.4 inch', 'Octa Core'),
@@ -162,11 +166,12 @@ INSERT INTO `specs_mob` (`id`, `p_id`, `Internal Memory`, `RAM`, `Primary Camera
 -- Table structure for table `sub_category`
 --
 
-CREATE TABLE `sub_category` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `sub_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `cid` int(3) NOT NULL,
-  `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `title` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `sub_category`
@@ -184,59 +189,6 @@ INSERT INTO `sub_category` (`id`, `cid`, `title`) VALUES
 (9, 2, 'Lenovo'),
 (10, 2, 'LG');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `specs_lap`
---
-ALTER TABLE `specs_lap`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `specs_mob`
---
-ALTER TABLE `specs_mob`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sub_category`
---
-ALTER TABLE `sub_category`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `category`
---
-ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
---
--- AUTO_INCREMENT for table `sub_category`
---
-ALTER TABLE `sub_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
