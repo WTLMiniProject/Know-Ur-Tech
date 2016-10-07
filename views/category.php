@@ -52,7 +52,7 @@
 				<div class="thumbnail"> <!-- card -->
 					<img src="<?=$p_item['img']?>" alt="<?=$p_item['title']?>" class="card_img">
 					<div class="caption"> <!-- text area of card -->
-						<h3><?=$p_item['title']?></h3>
+						<h3><a href="product.php?pro=<?=$p_item['id']?>"><?=$p_item['title']?></a></h3>
 						<p><?=$p_item['description']?><br>Rs. <?=$p_item['price']?></p>
 						<p><a class="btn btn-primary" role=""button href="#">Add to Cart</a></p>
 					</div> <!-- end of card text area -->
