@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2016 at 05:24 PM
+-- Generation Time: Oct 07, 2016 at 10:48 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -114,6 +114,9 @@ CREATE TABLE `specs_lap` (
 
 INSERT INTO `specs_lap` (`id`, `p_id`, `OS`, `Processor`, `Speed`, `Graphic Card`, `RAM`, `HDD`, `Battery Backup`) VALUES
 (1, 1, 'Windows 10', 'Core i7', '2.5 GHz with Turbo Boost upto 3.1 GHz', ' AMD Radeon R5 M335 4GB', '16 GB', '1TB', '6 hrs'),
+(2, 2, 'Windows 10', 'Core i5', '1.2 GHz with Turbo Boost Upto 3.1 GHz', 'Intel HD Graphics 515', '8 GB', '512 GB', '7 hrs'),
+(3, 3, 'Windows 10', 'Core i7', '2.6 GHz with Turbo Boost Upto 3.5 GHz', 'NVIDIA GeForce GTX 960M (4 GB)', '16 GB', '1 TB', '6.5 hrs'),
+(4, 4, 'windows 8', 'Core i7', '1.8 GHz with Turbo Boost Upto 2.93 GHz 2 GB', 'NVIDIA GeForce GT 750M (4 GB)', '8 GB', '1 TB', '7 hrs'),
 (6, 6, 'Windows 10', 'Core i7', '2.6 GHz with Turbo Boost Upto 3.5 GHz', 'Nvidia Geforce Gtx 980M 8GB', '16 GB', '1 TB', '7 hrs'),
 (11, 11, 'Windows 8.1', 'Core i7', '2.4 GHz with Turbo Boost Upto 3 GHz', 'Intel HD Graphics 5500', '8 GB', '1 TB', '5.5 to 6 hrs'),
 (16, 16, 'Windows 10', 'Core i7', '2.6 GHz (Upto 3.5GHz)', 'Nvidia GTX 960M 4 GB\r\n', '16 GB', '1 TB', '6.5 hrs'),
