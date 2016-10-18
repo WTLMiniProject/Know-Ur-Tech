@@ -44,7 +44,7 @@
         <?php  
           }
         ?>
-        <h5><?=$p_item['title']?></h5>
+        <a href="product.php?pro=<?=$p_item['id']?>"><h5><?=$p_item['title']?></h5></a>
         <p></p>
         <a href="category.php?category=<?=$c_item['id']?>&subcategory=<?=$sc_item['id']?>&product=<?=$p_item['id']?>" class="button expanded">Add to Cart</a>
       </div>
@@ -85,7 +85,7 @@
         <?php  
           }
         ?>
-        <h5><?=$p_item['title']?></h5>
+        <a href="product.php?pro=<?=$p_item['id']?>"><h5><?=$p_item['title']?></h5></a>
         <p><?=$p_item['price']?></p>
         <a href="#" class="button small expanded hollow">Add to Cart</a>
         </div>

@@ -26,7 +26,7 @@
                     <li><a href="index.php">Home</a>
                     </li>
                     <li><a href="index.php">Products</a></li>
-                    <li><a href="category.php?category=<?=$products['cid']?>&subcategory=<?=$products['scid']?>">Brand</a></li>
+                    <li><a href="category.php?category=<?=$products['cid']?>&subcategory=<?=$products['scid']?>"><?=$sub_category['title']?></a></li>
                     <li class="active"><?=$products['title']?></li>
                 </ol>
                 <h1 class="page-header"><?=$products['title']?>
