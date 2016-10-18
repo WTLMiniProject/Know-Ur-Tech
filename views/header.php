@@ -114,7 +114,7 @@
                 <?php
                   foreach ($category as $cid => $c_item) {
                 ?>
-                  <li><a href="compare.php?category=<?=$c_item['id']?>"> <?=$c_item['title']?></a></li>
+                  <li><a href="compare.php?category=<?=$c_item['id']?>"><?=$c_item['title']?></a></li>
                 <?php
                   }
                 ?>
