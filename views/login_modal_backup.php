@@ -146,7 +146,7 @@ session_start();
             <?php
             }else{
             ?>
-            <li><a type="button" href="login.php">Login</a></li>
+            <li><a type="button" data-toggle="modal" data-target="#login-modal">Login</a></li>
             <li><a href="signup.php">Signup</a></li>
             <?php
             }
@@ -158,4 +158,22 @@ session_start();
       </div> <!-- closing expand navbar -->
     </nav> <!-- end of nav element -->
     
-    
+    <div class="login_space"> <!-- class for login space -->
+      
+      <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;"> <!-- class for login modal -->
+        <div class="modal-dialog"> <!-- class for modal dialog -->
+          <div class="loginmodal-container"> <!-- container class inside modal -->
+            <h1>Login to Your Account</h1><br>
+            <form action="login.php" method="post"> <!-- login form begin -->
+              <input type="email" name="email" placeholder="Email" required>
+              <input type="password" name="pass" placeholder="Password" required>
+              <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form> <!-- end of login form -->
+            
+            <div class="login-help"> <!-- login footer text -->
+              <a href="signup.php">Register</a>
+            </div> <!-- closing login footer text -->
+          </div> <!-- closing container class inside modal -->
+        </div> <!-- closing modal dialog -->
+      </div> <!-- closing login modal -->
+    </div> <!-- end of login space -->
