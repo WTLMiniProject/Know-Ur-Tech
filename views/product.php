@@ -46,7 +46,33 @@
                 <p><?=$products['description']?></p>
                 <h4>Rating: <?=$products['rating']?><i class="fa fa-star-o"></i></h5> 
                 <h5>Price: <?=$products['price']?></h5>
-                <p><a class="btn btn-primary" role=""button href="#">Add to Cart</a></p>
+                <?php 
+						if (!check_cart($products['id'])) {
+							if ($cart_count < 10) {
+						?>
+							<div class="col-sm-6">
+							<p><a class="btn btn-primary" role=""button href="added_cart.php?page=route.php?productid=<?=$products['id']?>&prod_id=<?=$products['id']?>">Add to Cart</a></p>	
+						</div>
+						<?php	
+							}
+							else {
+						?>
+								<div class="col-sm-6">
+							<p><a class="btn btn-primary btn-info disabled" role="button" href="added_cart.php?page=<?=$_SERVER['PHP_SELF']?>&prod_id=<?=$products['id']?>&is_pro=1">Add to Cart</a></p>	
+						</div>
+						
+						<?php
+							}
+						}
+						else{
+						?>
+						<div class="col-sm-6">
+							<p><a class="btn btn-primary btn-info disabled" role=""button href="added_cart.php?page=<?=$_SERVER['PHP_SELF']?>&prod_id=<?=$products['id']?>">Added to Cart</a></p>	
+						</div>
+						<?php
+						}
+						?>
+                
             </div>
         </div>
         <!-- /.row -->

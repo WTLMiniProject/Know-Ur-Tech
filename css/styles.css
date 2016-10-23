@@ -1,3 +1,27 @@
+body {
+  padding-top: 8vw; 
+}
+
+.label {
+      margin: 4px;
+    padding: 0.33333rem 1.8rem;
+}
+.top_products .thumbnail {
+  height: 13vw;
+}
+
+.new_products .thumbnail {
+  height: 10vw;
+}
+
+.thumbnail {
+  border: 0px solid #fefefe;
+}
+
+.new_products .column {
+  width: 15%;
+}
+
 /*********************************************************
 **********************SITE LOGO***************************
 *********************************************************/

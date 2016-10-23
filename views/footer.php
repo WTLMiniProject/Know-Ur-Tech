@@ -1,4 +1,4 @@
-<div class="callout large secondary footer"> <!-- footer opening -->
+<div class="callout large secondary footer" style="display: -webkit-box;"> <!-- footer opening -->
       <div class="row"> <!-- row for footer -->
         <div class="large-4 columns"> <!-- left footer -->
           <h5>About The Site</h5>
@@ -6,8 +6,8 @@
         </div> <!-- end of left footer -->
         <div class="large-3 large-offset-2 columns"> <!-- right left footer -->
           <ul class="menu vertical"> <!-- right left footer list -->
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Signup</a></li>
+            <li><a href="login.php" style="cursor: pointer;">Login</a></li>
+            <li><a href="signup.php" style="cursor: pointer;">Signup</a></li>
             <li><a href="#">2014-16 &copy; KuT Technologies Pvt. Ltd.</a></li>
             <li><a href="#">All rights reserved</a></li>
           </ul> <!-- end of right left footer list -->

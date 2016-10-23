@@ -10,7 +10,7 @@
 		$sql = "SELECT email FROM users WHERE email = '$email'";
 		$email_1 = $conn->query($sql); 
 		$email_1 = mysqli_fetch_all ($email_1, MYSQLI_ASSOC);
-		var_dump($email_1);
+		// var_dump($email_1);
 		if ($name == "" || $email == "" || $password == "" || $mobile == "") {
 			$error_message = "important fields have been left blank";
 		}			
@@ -89,7 +89,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th colspan="2"><input type="submit" name="submit" value="Submit"></th>
+					<th colspan="2"><input type="submit" class="btn btn-success btn-block btn-lg" name="submit" value="Submit"></th>
 				</tr>
 			</table>
 		</form>

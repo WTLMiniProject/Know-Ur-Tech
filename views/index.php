@@ -24,9 +24,9 @@
     </div>
 
     <!-- DIVISION FOR TOP PRODUCTS -->
-    <div class="row small-up-2 large-up-4">
+    <div class="row small-up-2 large-up-4 top_products">
       <?php 
-        $sql = "SELECT id, title, cid, scid, description, img, price, quantity, created  FROM products ORDER BY rating DESC LIMIT 4";
+        $sql = "SELECT id, title, cid, scid, description, img, price, quantity, created  FROM products WHERE cid=1 ORDER BY rating DESC LIMIT 4";
         $product = $conn->query($sql);
         $product = mysqli_fetch_all ($product, MYSQLI_ASSOC);
         foreach ($product as $pid => $p_item) {
@@ -46,7 +46,29 @@
         ?>
         <a href="product.php?pro=<?=$p_item['id']?>"><h5><?=$p_item['title']?></h5></a>
         <p></p>
-        <a href="category.php?category=<?=$c_item['id']?>&subcategory=<?=$sc_item['id']?>&product=<?=$p_item['id']?>" class="button expanded">Add to Cart</a>
+        <?php 
+            if (!check_cart($p_item['id'])) {
+              if ($cart_count < 10) {
+            ?>
+              <a href="added_cart.php?page=<?=$_SERVER['PHP_SELF']?>&prod_id=<?=$p_item['id']?>" class="button expanded">Add to Cart</a>
+            <?php 
+              }
+              else {
+            ?>
+              <a href="added_cart.php?page=<?=$_SERVER['PHP_SELF']?>&prod_id=<?=$p_item['id']?>" class="button expanded btn-info disabled">Add to Cart</a>
+            
+            <?php
+              }
+            }
+            else{
+            ?>
+            <div>
+              <a href="added_cart.php?page=<?=$_SERVER['PHP_SELF']?>&prod_id=<?=$p_item['id']?>" class="button expanded btn-success disabled">Added to Cart</a>  
+            </div>
+            <?php
+          }
+            ?>
+        
       </div>
       <?php  
          } 
@@ -67,8 +89,12 @@
       <h2>Latest Products</h2>
       <hr>
     </div>
-
-    <div class="row small-up-2 medium-up-3 large-up-6">
+    <?php
+    $sql = "SELECT id, title, cid, scid, description, img, price, quantity, created  FROM products ORDER BY created DESC LIMIT 6";
+        $product = $conn->query($sql);
+        $product = mysqli_fetch_all ($product, MYSQLI_ASSOC);
+    ?>
+    <div class="row small-up-2 medium-up-3 large-up-6  new_products">
       <?php 
         foreach ($product as $pid => $p_item) {
       ?>
@@ -81,13 +107,34 @@
           }
           else {
         ?>
-              <img class="thumbnail mobile_img" src="<?=$p_item['img']?>" style="height: 115px; width: 360px; padding: 5px 40px;">
+              <img class="thumbnail mobile_img" src="<?=$p_item['img']?>" style="padding: 5px 3vw;">
         <?php  
           }
         ?>
         <a href="product.php?pro=<?=$p_item['id']?>"><h5><?=$p_item['title']?></h5></a>
         <p><?=$p_item['price']?></p>
-        <a href="#" class="button small expanded hollow">Add to Cart</a>
+        <?php 
+            if (!check_cart($p_item['id'])) {
+              if ($cart_count < 10) {
+            ?>
+              <a href="added_cart.php?page=<?=$_SERVER['PHP_SELF']?>&prod_id=<?=$p_item['id']?>" class="button small expanded hollow">Add to Cart</a>
+            <?php 
+              }
+              else {
+            ?>
+              <a href="added_cart.php?page=<?=$_SERVER['PHP_SELF']?>&prod_id=<?=$p_item['id']?>" class="button small expanded hollow btn-info disabled">Add to Cart</a>
+            
+            <?php
+              }
+            }
+            else{
+            ?>
+            <div>
+              <a href="added_cart.php?page=<?=$_SERVER['PHP_SELF']?>&prod_id=<?=$p_item['id']?>" class="button small expanded hollow btn-default disabled">Added to Cart</a>  
+            </div>
+            <?php
+          }
+            ?>
         </div>
       <?php  
          } 

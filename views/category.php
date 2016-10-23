@@ -5,14 +5,16 @@
 		$cid = $_GET['category'];
 	}
 	else {
-		$cid = '';
+		$cid = 1;
 	}
 	if (isset($_GET['subcategory'])) {
 		$scid = $_GET['subcategory'];
 	}
 	else {
-		$scid = '';
+		$scid = 1;
 	}
+
+
 
 	$sql = "SELECT id, title FROM sub_category WHERE cid = ".$cid;
 	$subcategory = $conn->query($sql);  
@@ -54,7 +56,39 @@
 					<div class="caption"> <!-- text area of card -->
 						<h3><a href="product.php?pro=<?=$p_item['id']?>"><?=$p_item['title']?></a></h3>
 						<p><?=$p_item['description']?><br>Rs. <?=$p_item['price']?></p>
-						<p><a class="btn btn-primary" role=""button href="#">Add to Cart</a></p>
+
+						<?php 
+						if (!check_cart($p_item['id'])) {
+						?>
+							<div class="col-sm-6">
+							<p><a class="btn btn-primary" role="button" href="added_cart.php?page=route.php?subcategory=<?=$p_item['scid']?>&prod_id=<?=$p_item['id']?>">Add to Cart</a></p>	
+						</div>
+						<?php
+						}
+						else{
+						?>
+						<div class="col-sm-6">
+							<p><a class="btn btn-primary btn-info btn-success disabled" role="button">Added to Cart</a></p>	
+						</div>
+						<?php
+						}
+						?>
+						<?php 
+						if (!check_lap($p_item['id']) && !check_mob($p_item['id'])) {
+						?>
+						<div class="col-sm-6">
+							<p><a class="btn btn-primary" role="button" href="added_compare.php?page=route.php?subcategory=<?=$p_item['scid']?>&prod_id=<?=$p_item['id']?>&prod_cid=<?=$p_item['cid']?>">Add to Compare</a></p>
+						</div>
+						<?php
+						}
+						else{
+						?>
+						<div class="col-sm-6">
+							<p><a class="btn btn-primary btn-info disabled" role="button">Added to Compare</a></p>
+						</div>
+						<?php
+						}
+						?>
 					</div> <!-- end of card text area -->
 				</div> <!-- end of card -->
 			</div> <!-- end of grid for product -->

@@ -1,5 +1,6 @@
 <?php
 session_start(); 
+//setcookie('cart', '');
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -35,16 +36,68 @@ session_start();
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   } 
-
   $sql = "SELECT id, title FROM category";
   $category = $conn->query($sql);
-
-  
   $category = mysqli_fetch_all ($category, MYSQLI_ASSOC);
-  
-  
+  $cart_count = 0;
+  $lap_count = 0;
+  $mob_count = 0;
 
+  if (isset($_COOKIE['cart'])) 
+  {
+    $cookie = json_decode($_COOKIE['cart'], true);
+    $cart_count = count($cookie);
+  }
+  // setcookie('cart', '', time()-3600);
+  function check_cart($id)
+  {
+    if (isset($_COOKIE['cart'])) {
+      $cookie = json_decode($_COOKIE['cart'], true);
+      if (isset($cookie[$id])) {
+        return true;
+      }
+    }
 
+    return false;
+  }
+  //COOKIE FOR LAPTOP COMPARE
+  if (isset($_COOKIE['lapcompare'])) 
+  {
+    $lapcookie = json_decode($_COOKIE['lapcompare'], true);
+    $lap_count = count($lapcookie);
+  }
+  // setcookie('cart', '', time()-3600);
+  function check_lap($id)
+  {
+    if (isset($_COOKIE['lapcompare'])) {
+      $lapcookie = json_decode($_COOKIE['lapcompare'], true);
+      if (isset($lapcookie[$id])) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  //COOKIE FOR MOBILE COMPARE 
+
+  if (isset($_COOKIE['mobcompare'])) 
+  {
+    $mobcookie = json_decode($_COOKIE['mobcompare'], true);
+    $mob_count = count($mobcookie);
+  }
+  // setcookie('cart', '', time()-3600);
+  function check_mob($id)
+  {
+    if (isset($_COOKIE['mobcompare'])) {
+      $mobcookie = json_decode($_COOKIE['mobcompare'], true);
+      if (isset($mobcookie[$id])) {
+        return true;
+      }
+    }
+
+    return false;
+  }
   // var_dump($category);
 
  /* if ($result->num_rows > 0) {
@@ -59,7 +112,7 @@ session_start();
 
   ?> 
     <!-- Start Top Bar -->
-    <nav class="top-bar navbar" role="navigation">
+    <nav class="top-bar navbar navbar-fixed-top" role="navigation">
       
       <div class="navbar-header"> <!-- navbar header -->
         
@@ -112,12 +165,36 @@ session_start();
               </ul> <!-- end of products dropdown -->
             </li> <!-- close product option -->
             <li class="dropdown"> <!-- compare option -->
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compare<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compare
+              <?php
+              $total_count = $lap_count + $mob_count;
+              if ($lap_count > 0 || $mob_count > 0) {
+              ?>
+              <span class="badge"><?=$total_count?></span>
+              <?php
+                // echo '('.$total_count.')';
+              }
+            ?><span class="caret"></span></a>
               <ul class="dropdown-menu"> <!-- dropdown for comparison -->
                 <?php
                   foreach ($category as $cid => $c_item) {
                 ?>
-                  <li><a href="compare.php?category=<?=$c_item['id']?>"><?=$c_item['title']?></a></li>
+                  <li><a href="compare.php?category=<?=$c_item['id']?>"><?=$c_item['title']?>
+                    <?php
+                      if ($c_item['id']==1 && $lap_count > 0) {
+                    ?>
+                    <span class="badge"><?=$lap_count?></span>
+                    <?php
+                      // echo '('.$lap_count.')';
+                      }
+                      if ($c_item['id']==2 && $mob_count > 0) {
+                    ?>
+                    <span class="badge"><?=$mob_count?></span>
+                    <?php
+                      // echo '('.$mob_count.')';
+                      }
+                    ?>
+                  </a></li>
                 <?php
                   }
                 ?>
@@ -132,11 +209,21 @@ session_start();
             if(isset($_SESSION['name']))
             {
           ?>
-            <li><a><h6>Welcome <?=$_SESSION['name'];?></h6></a></li>
+            <li><a href="index.php">Welcome <?=$_SESSION['name'];?></a></li>
             <?php
             }
             ?>
-            <li><a href="#">Cart</a></li>
+            <li><a href="cart.php">Cart
+            <?php
+              if ($cart_count > 0) {
+            ?>
+            <span class="badge"><?=$cart_count?></span>
+            <?php
+                // echo '('.$cart_count.')';
+              }
+            ?>
+
+            </a></li>
             <li><a href="aboutus.php">About</a></li>
             <?php if (isset($_SESSION['name']))
             {
