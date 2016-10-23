@@ -21,7 +21,7 @@
 			<div class="col-sm-2 product_image"><img src="<?=$p_value['img']?>" style="max-width: 3vw;"></div>
 			<div class="col-sm-4 product_title"><?=$p_value['title']?></div>
 			<div class="col-sm-6">
-				<div class="col-sm-4 rate"><?=$p_value['price']?></div>
+				<div class="col-sm-4 rate">Rs. <?=$p_value['price']?>/-</div>
 				<div class="col-sm-4 quantity">
 					<div class="input-group">
       					<span class="input-group-btn">
@@ -54,7 +54,7 @@
 			<div class="col-sm-2"><b>Total</b></div>
 			<div class="col-sm-4"></div>
 			<div class="col-sm-6">
-				<div class="col-sm-4 rate"><b><?=$sum;?></b></div>
+				<div class="col-sm-4 rate"><b>Rs. <?=$sum;?>/-</b></div>
 				<div class="col-sm-4 quantity" align="center">
 					<a href="count_modified.php?clear=1" type="button" role="button" class="btn btn-danger">Clear Cart</a>	
 				</div>

@@ -7,7 +7,7 @@
         <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
         <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
         <?php
-          for ($i=1; $i <=2 ; $i++) { 
+          for ($i=1; $i <=5 ; $i++) { 
         ?>
           <li class="orbit-slide">
           <img class="img-responsive" src="../uploads/carousel/image-<?=$i;?>.jpg" style="width: 1349px; height: 506px ;">

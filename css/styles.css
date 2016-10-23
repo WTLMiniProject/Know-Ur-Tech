@@ -1,5 +1,7 @@
 body {
-  padding-top: 8vw; 
+  padding-top: 8vw;
+  background-image: url("../uploads/background/bacground-2.jpg");
+  background-size: stretch; 
 }
 
 .label {
