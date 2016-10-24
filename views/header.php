@@ -155,28 +155,7 @@
       </div> <!-- closing login modal -->
     </div> <!-- end of login space -->
 
-    <div class="signup_space"> <!-- signup space -->
-      <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none"> <!-- signup modal -->
-        <div class="modal-dialog"> <!-- signup dialog -->
-          <div class="loginmodal-container"> <!-- container for signup -->
-            <h1>Signup</h1>
-            <form> <!-- start of signup form -->
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" placeholder="Your Fullname">
-              <label for="email">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" placeholder="Password">
-              <label for="c_password">Confirm Password</label>
-              <input type="password" name="c_password" id="c_password" placeholder="Confirm Password">
-              <label for="mobile">Mobile</label>
-              <input type="text" name="mobile" id="mobile" placeholder="Enter mobile number">
-            </form> <!-- end of signup form -->
-          </div> <!-- closing signup container -->
-        </div> <!-- closing signup dialog -->
-      </div> <!-- closing signup modal -->
-    </div> <!-- closing signup space -->
-
+    
     <!-- TODO
       ADMIN PANEL 
       PRODUCT DETAILS PAGE 
